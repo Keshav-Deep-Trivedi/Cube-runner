@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
+    public Transform transform;
     public float ForwardForce = 1000f;
     public float SidewayForce = 500f;
     public float JumpForce = 1000f;
@@ -37,8 +38,13 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddForce(0, JumpForce * Time.deltaTime, 0, ForceMode.Impulse);
-            Invoke("Jump", 1f);
+            if (transform.position.y > 2)
+            { }
+            else
+            {
+                rb.AddForce(0, JumpForce * Time.deltaTime, 0, ForceMode.Impulse);
+                //Invoke("Jump", 1f);
+            }
         }
         if(rb.position.y < -1f)
         {

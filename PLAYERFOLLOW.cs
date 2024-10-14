@@ -13,9 +13,10 @@ public class PLAYERFOLLOW : MonoBehaviour
     void FixedUpdate()
     {
         // Debug.Log(playerposition.position);
-        Vector3 desiredposition = playerposition.position + offset;
-        Vector3 smoothedposition = Vector3.SmoothDamp(transform.position, desiredposition, ref velocity , smoothtime);
-        transform.position = smoothedposition;
+        /* Vector3 desiredposition = playerposition.position + offset;
+         Vector3 smoothedposition = Vector3.SmoothDamp(transform.position, desiredposition, ref velocity , smoothtime);
+         transform.position = smoothedposition;*/
+        transform.position = playerposition.position + offset;
 
         transform.LookAt(playerposition);
     }
